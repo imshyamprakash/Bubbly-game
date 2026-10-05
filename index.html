@@ -1,33 +1,106 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="style.css">
-    <title>Bubble Game</title>
-    </head>
-    <body>
-        <div id="main">
-            <div id="sub1">
-                <div id="sub2">
-                    <div class="topic">
-                        <h2>Hit</h2>
-                        <div id="hit" class="box">5</div>
-                    </div>
-                    <div class="topic">
-                        <h2>Timer</h2>
-                        <div id="val" class="box">6</div>
-                    </div>
-                    <div class="topic">
-                        <h2>Score</h2>
-                        <div id='sc' class="box">0</div>
-                    </div>
-                </div>
-                <div id="sub3">
-                <!-- <div class="bubble">5</div> -->
-                <!-- <div class="bubble">5</div> -->
-            </div>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Bubbly is a quick number-hunt game. Find the matching bubble before the timer runs out."
+    />
+    <meta name="theme-color" content="#f4f3ed" />
+    <title>Bubbly — Number Hunt</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <main class="page-shell">
+      <header class="topbar">
+        <a class="brand" href="#top" aria-label="Bubbly home">
+          <span class="brand-mark" aria-hidden="true">
+            <span></span><span></span><span></span>
+          </span>
+          <span>Bubbly</span>
+        </a>
+        <p class="topbar-note">A little focus goes a long way.</p>
+      </header>
+
+      <section class="intro" id="top" aria-labelledby="page-title">
+        <p class="eyebrow"><span class="eyebrow-dot"></span> A quick number hunt</p>
+        <h1 id="page-title">Catch the <span>right bubbles.</span></h1>
+        <p class="intro-copy">
+          Keep your eyes on the target, trust your reflexes, and see how many you can find.
+        </p>
+      </section>
+
+      <section class="game-card" aria-label="Bubbly number hunt game">
+        <div class="scoreboard" aria-label="Game score">
+          <article class="stat-card target-card">
+            <p class="stat-label">Your target</p>
+            <p class="stat-value target-value" id="target-number" aria-live="polite">—</p>
+          </article>
+          <article class="stat-card timer-card">
+            <p class="stat-label">Time left</p>
+            <p class="stat-value timer-value" id="timer-value" aria-live="off">60</p>
+          </article>
+          <article class="stat-card score-card">
+            <p class="stat-label">Your score</p>
+            <p class="stat-value" id="score-value" aria-live="off">0</p>
+          </article>
+          <article class="stat-card best-card">
+            <p class="stat-label">Personal best</p>
+            <p class="stat-value" id="best-value" aria-live="off">0</p>
+          </article>
         </div>
-        <script src="script.js"></script>
-    </body>
+
+        <div class="game-heading">
+          <div>
+            <p class="section-kicker">Ready when you are</p>
+            <p class="game-message" id="game-message" aria-live="polite">
+              Tap the matching number to score 10 points.
+            </p>
+          </div>
+          <span class="round-length"><span aria-hidden="true">◷</span> 60 sec</span>
+        </div>
+
+        <div class="playfield">
+          <div class="welcome-panel" id="welcome-panel">
+            <div class="welcome-art" aria-hidden="true">
+              <span class="art-bubble art-bubble-one">4</span>
+              <span class="art-bubble art-bubble-two">7</span>
+              <span class="art-bubble art-bubble-three">2</span>
+            </div>
+            <h2>Ready, set, pop!</h2>
+            <p>Find the target number. Every correct bubble adds 10 points.</p>
+            <button class="button button-primary" id="start-button" type="button">
+              Start playing <span aria-hidden="true">↗</span>
+            </button>
+          </div>
+
+          <div
+            class="bubble-grid"
+            id="bubble-grid"
+            aria-label="Number bubbles"
+            hidden
+          ></div>
+
+          <div class="result-panel" id="result-panel" aria-labelledby="result-title" hidden>
+            <span class="result-icon" aria-hidden="true">✦</span>
+            <p class="section-kicker">Round complete</p>
+            <h2 id="result-title">Nice focus!</h2>
+            <p class="result-copy">You scored <strong id="final-score">0</strong> points.</p>
+            <button class="button button-primary" id="replay-button" type="button">
+              Play again <span aria-hidden="true">↗</span>
+            </button>
+          </div>
+        </div>
+
+        <footer class="game-footer">
+          <p><span class="keyboard-icon" aria-hidden="true">↵</span> Use a mouse, touch, or keyboard to pop bubbles.</p>
+          <p>Made for curious minds <span aria-hidden="true">✳</span></p>
+        </footer>
+      </section>
+
+      <p class="page-note">A small browser game built with HTML, CSS, and JavaScript.</p>
+    </main>
+  </body>
 </html>
